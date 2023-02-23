@@ -1,8 +1,49 @@
 import React from 'react'
+import Footer from './Footer'
+import Navbar from './Navbar'
+import { useParams } from 'react-router-dom'
+import { useEffect,useState } from 'react'
+import axios from "axios";
+import Card from './Card'
+import Searchbar from './Searchbar'
 
 const BookList = () => {
+    const {name} = useParams();
+    const [data,setData] = useState([]);
+    const [apiKey, setApiKey] = useState("AIzaSyByH6sN89SmGJNO0uGjNrtXXs5QdExiiHw");
+
+    useEffect(() => {
+        axios.get("https://www.googleapis.com/books/v1/volumes?q=" + name + "&key=" + apiKey + "&maxResults=20")
+        .then(res => {  
+            console.log(res.data.items)  
+            setData(res.data.items);            
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    },[name])
   return (
-    <div>BookList</div>
+    <>
+        <div className="flex flex-col min-h-screen justify-between bg-[#F9F9F9] ">
+        <Navbar />
+        <Searchbar cname="sm:hidden flex flex-col mx-16 my-4 justify-center" inp_cname="w-auto sm:w-[300px] h-10 mb-1" btn_cname="block sm:inline"/>
+        <div className='flex flex-row flex-wrap justify-center gap-2 m-10'>
+        {
+            
+            data.map(ele => {
+                return (
+                    <div key={ele.id} >
+                        <Card image={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title} />
+                        {/* <p>title: {ele.volumeInfo.title}</p> */}
+                    </div>
+                )
+            })
+        }
+        </div>
+        
+        <Footer />
+        </div>
+    </>
   )
 }
 

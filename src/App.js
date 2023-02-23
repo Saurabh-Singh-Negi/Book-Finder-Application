@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="booklist" element={<BookList />} />
+          <Route path="/booklist/:name" element={<BookList />} />
         </Routes>
       </BrowserRouter>
     </>
