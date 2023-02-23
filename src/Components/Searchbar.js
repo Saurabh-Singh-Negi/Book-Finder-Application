@@ -26,10 +26,10 @@ const Searchbar = () => {
         onChange={(event) => {
           setName(event.target.value);
         }}
-        className="text-[#000]"
+        
         placeholder="Search Book"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button className="bg-green-300 ml-1 " onClick={handleSearch}>Search</button>
 
       {
         data.map((ele) => (
