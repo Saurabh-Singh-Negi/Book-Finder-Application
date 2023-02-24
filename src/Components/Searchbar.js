@@ -22,8 +22,8 @@ const Searchbar = (props) => {
         onChange={(event) => {
           setName(event.target.value);
         }}
-        className={`text-[#000] p-1 border-2 rounded-lg border-black ${props.inp_cname}`}
-        placeholder="Search Book"
+        className={`text-[#000] bg-[#f2f2f2] p-1 border-2 rounded-lg border-[#13334c] ${props.inp_cname}`}
+        placeholder="Find your next book"
       />
       
       <button className={`bg-[#1FAA59] text-white font-semibold text-lg ml-1 rounded p-.5 px-2 ${props.btn_cname}`} onClick={handleSearch}>Search</button>
