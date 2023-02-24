@@ -13,9 +13,10 @@ const BookList = () => {
     const [apiKey, setApiKey] = useState("AIzaSyByH6sN89SmGJNO0uGjNrtXXs5QdExiiHw");
 
     useEffect(() => {
-        axios.get("https://www.googleapis.com/books/v1/volumes?q=" + name + "&key=" + apiKey + "&maxResults=20")
+        axios.get("https://www.googleapis.com/books/v1/volumes?q=" + name + "&key=" + apiKey + "&maxResults=18")
         .then(res => {  
-            console.log(res.data.items)  
+            console.log(res.data.items)
+            // console.log(res.data.items[0].saleInfo.buyLink)  
             setData(res.data.items);            
         })
         .catch(error => {
@@ -33,8 +34,8 @@ const BookList = () => {
             data.map(ele => {
                 return (
                     <div key={ele.id} >
-                        <Card image={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title} />
-                        {/* <p>title: {ele.volumeInfo.title}</p> */}
+                        <Card buy={ele.saleInfo.buyLink} desc={ele.volumeInfo.description} image={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title} />
+                        
                     </div>
                 )
             })
