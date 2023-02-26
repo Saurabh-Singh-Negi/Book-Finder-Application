@@ -9,7 +9,7 @@ const Home = () => {
         <Navbar />
         
         <Header/>
-        <Searchbar cname="flex flex-col mx-16  sm:flex-row justify-center" inp_cname="w-auto sm:w-[400px] h-[50px] mb-1" btn_cname="block sm:inline px-6"/>      
+        <Searchbar cname="flex flex-col mx-16  sm:flex-row justify-center" inp_cname="w-auto sm:w-[400px] h-[50px] mb-1" btn_cname="block rounded-lg sm:inline px-6"/>      
         <Footer />
     </div>
   )
