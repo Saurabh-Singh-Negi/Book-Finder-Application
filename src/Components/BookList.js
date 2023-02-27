@@ -34,7 +34,7 @@ const BookList = () => {
             data.map(ele => {
                 return (
                     <div key={ele.id} >
-                        <Card buy={ele.saleInfo.buyLink} desc={ele.volumeInfo.description} image={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title} />
+                        <Card saleability={ele.saleInfo.saleability} buy={ele.saleInfo.buyLink} desc={ele.volumeInfo.description} image={ele.volumeInfo.imageLinks.thumbnail} title={ele.volumeInfo.title} />
                         
                     </div>
                 )

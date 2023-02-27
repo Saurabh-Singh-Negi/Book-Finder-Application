@@ -21,9 +21,13 @@ const Modal = (props) => {
                     
                     <p>{props.desc}</p>
                 </div>
-                <div className='text-center'>
-                    <a href={props.buy} className='text-white font-semibold py-1 px-2 rounded bg-[#1FAA59]' >Buy Now</a>
-                </div>
+                {
+                    props.sale !== 'NOT_FOR_SALE'?
+                
+                    <div className='text-center'>
+                        <a href={props.buy} className='text-white font-semibold py-1 px-2 rounded bg-[#1FAA59]' >Buy Now</a>
+                    </div>:""
+                }
             </div>
             
         )}
